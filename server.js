@@ -24,8 +24,12 @@ app.configure(function() {
 	app.use(express.static(__dirname + '/public'));
 });
 
-//mongoose.connect('mongodb://localhost/mean');
-mongoose.connect('mongodb://mean:mean@ds045897.mongolab.com:45897/mean');
+if (env === 'development') {
+	mongoose.connect('mongodb://localhost/mean');
+} else {
+	mongoose.connect('mongodb://mean:mean@ds045897.mongolab.com:45897/mean');
+}
+
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error...'));
 db.once('open', function callback() {
@@ -42,7 +46,9 @@ Messages.findOne().exec(function(err, msgDoc) {
 app.get('/partials/:partialPath', function(req, res) {
 	res.render('partials/' + req.params.partialPath);
 });
-
+app.get('/app/:partialPath', function(req, res) {
+	res.sendfile( 'app/' + req.params.partialPath);
+});
 app.get('*', function(req, res) {
 	res.render('index', {
 		mongoMsg: mongoMsg
