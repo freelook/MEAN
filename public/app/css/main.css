@@ -9024,7 +9024,7 @@ button.toast-close-button {
 	border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 #nav > li.open > a, #nav > li:hover > a {
-	background-color: #28262c;
+	background-color: #674e9e;
 	color: white;
 	font-weight: bold;
 }
@@ -9046,7 +9046,7 @@ button.toast-close-button {
 	right: 5px;
 }
 #nav > li.active > a {
-	background-color: #28262c;
+	background-color: #674e9e;
 	color: white;
 	font-weight: bold;
 }

@@ -47,7 +47,7 @@ app.get('/partials/:partialPath', function(req, res) {
 	res.render('partials/' + req.params.partialPath);
 });
 app.get('/app/:partialPath', function(req, res) {
-	res.sendfile( 'app/' + req.params.partialPath);
+	res.sendfile('app/' + req.params.partialPath);
 });
 app.get('*', function(req, res) {
 	res.render('index', {
@@ -55,6 +55,6 @@ app.get('*', function(req, res) {
 	});
 });
 
-var port = process.env.PORT || 4000;
+var port = process.env.PORT || 3333;
 app.listen(port);
 console.log('Listening on port ' + port + ' ...');
