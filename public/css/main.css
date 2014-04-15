@@ -8669,13 +8669,14 @@ button.toast-close-button {
 	padding: 24px;
 	text-transform: uppercase;
 }
-.page-err .err-message h2 {
-	font-size: 50px;
-	color: white;
-	font-weight: 300;
+.page-err .err-message h1 {
+	font-size: 30px;
+	line-height: 40px;
+	vertical-align: middle;
+	color: #fff;
 }
 .page-err .err-body {
-	padding: 100px 10px 20px;
+	padding: 30px 10px 20px;
 }
 .page-err .btn-goback {
 	color: white;
