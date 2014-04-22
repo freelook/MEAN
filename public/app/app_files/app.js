@@ -449,7 +449,6 @@
 		return toastr.options = {closeButton: !0, positionClass: "toast-bottom-right", timeOut: "3000"}, logIt = function(message, type) {
 			return toastr[type](message)
 		}, {log: function(message) {
-			debugger;
 			logIt(message, "info")
 		}, logWarning: function(message) {
 			logIt(message, "warning")

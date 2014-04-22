@@ -1,21 +1,22 @@
 {
-	"name": "MEAN",
-	"version": "0.0.0",
-	"description": "Learn MEAN",
-	"main": "index.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"engines": {
-		"node": "0.10.x",
-		"npm": "1.3.x"
-	},
-	"author": "Dima Kostrub",
-	"license": "BSD-2-Clause",
-	"dependencies": {
-		"jade": "~1.3.1",
-		"express": "~3.5.1",
-		"stylus": "~0.43.1",
-		"mongoose": "~3.8.8"
-	}
+  "name": "MEAN",
+  "version": "0.0.0",
+  "description": "Learn MEAN",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.3.x"
+  },
+  "author": "Dima Kostrub",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "jade": "~1.3.1",
+    "express": "~3.5.1",
+    "stylus": "~0.43.1",
+    "mongoose": "~3.8.8",
+    "express-locale": "~0.1.0"
+  }
 }

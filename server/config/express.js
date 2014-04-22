@@ -1,5 +1,6 @@
 var express = require('express'),
-	stylus = require('stylus');
+	stylus = require('stylus')
+	locale = require('express-locale');
 
 module.exports = function(app, config) {
 	function compile(str, path) {
@@ -10,6 +11,7 @@ module.exports = function(app, config) {
 		app.set('views', config.rootPath + '/server/views');
 		app.set('view engine', 'jade');
 		app.use(express.logger(config.logger));
+		app.use(locale());
 		app.use(express.cookieParser());
 		app.use(express.bodyParser());
 		app.use(express.session({secret: 'freelook'}));
