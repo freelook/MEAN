@@ -538,6 +538,10 @@ cite {
 	text-align: center;
 }
 
+.space {
+	margin-right: 3px
+}
+
 .text-justify {
 	text-align: justify;
 }
