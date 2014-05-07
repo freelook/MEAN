@@ -1,0 +1,18 @@
+extends ../includes/layout
+block main-content
+	section.content
+		.page-main
+			.text-center.page-message
+				h1 Freelook
+			.page-status
+				div(ng-view)
+			.page-body
+				.row
+					.col-md-12
+						.panel.panel-default
+							.panel-heading
+								strong
+									span.glyphicon.glyphicon-th.space
+									block main-name
+							.panel-body
+								span

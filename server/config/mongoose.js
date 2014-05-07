@@ -1,4 +1,5 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose')
+	userModel = require('../models/User');
 
 module.exports = function(config) {
 	mongoose.connect(config.db);
@@ -9,8 +10,7 @@ module.exports = function(config) {
 	});
 	var messageSchema = mongoose.Schema({message: String});
 	var Messages = mongoose.model('Messages', messageSchema);
-	var mongoMsg;
-	Messages.findOne().exec(function(err, msgDoc) {
-		mongoMsg = msgDoc.message;
-	});
+
+	userModel.createDefaultUsers();
+
 };
