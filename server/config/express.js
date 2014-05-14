@@ -17,10 +17,10 @@ module.exports = function(app, config) {
 		app.use(express.session({secret: 'freelook'}));
 		app.use(stylus.middleware(
 			{
-				src: config.rootPath + '/public',
+				src: config.rootPath + '/app',
 				compile: compile
 			}
 		));
-		app.use(express.static(config.rootPath + '/public'));
+		app.use(express.static(config.rootPath + '/app'));
 	});
 };
