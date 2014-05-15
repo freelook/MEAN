@@ -2737,10 +2737,10 @@ select[multiple].input-lg,
 }
 
 .btn-lg, .btn-group-lg > .btn {
-	padding: 10px 16px;
 	font-size: 17px;
 	line-height: 1.33;
 	border-radius: 6px;
+	width: 140px;
 }
 
 .btn-sm, .btn-group-sm > .btn {
@@ -10108,7 +10108,13 @@ button.toast-close-button {
 	border-color: #ff7857;
 }
 
+#vk {
+	max-height: 0px;
+	max-width: 0px;
+}
+
 #vk iframe {
+	top: -22px;
 	position: absolute;
 	filter: alpha(opacity=0.0);
 	opacity: 0;
