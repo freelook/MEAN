@@ -1,4 +1,6 @@
 define(['angularAMD', 'angular-route', 'angular-resource'], function (angularAMD) {
+	'use strict';
+
 	var app = angular.module('app', ['ngResource', 'ngRoute']);
 
 	app.config(function($routeProvider, $locationProvider) {

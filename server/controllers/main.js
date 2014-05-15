@@ -20,6 +20,7 @@ exports.routConfig =  function(req, res) {
 
 		res.render(source, {
 			l: require('../locale/' + ln),
-			bootstrappedUser: req.user
+			bootstrappedUser: req.user,
+			source: source
 		});
 	};

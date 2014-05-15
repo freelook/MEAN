@@ -10107,3 +10107,10 @@ button.toast-close-button {
 .form-validation .ng-invalid.ng-dirty {
 	border-color: #ff7857;
 }
+
+#vk iframe {
+	position: absolute;
+	filter: alpha(opacity=0.0);
+	opacity: 0;
+	z-index: 100;
+}
