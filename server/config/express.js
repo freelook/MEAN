@@ -22,7 +22,7 @@ module.exports = function(app, config) {
 				compile: compile
 			}
 		));
-		app.use(require('../middleware/HttpError'));
+		app.use(require('../middleware/HTTPError'));
 		app.use(app.router);
 		app.use(express.static(config.rootPath + '/app'));
 		app.use( require('../middleware/ErrorHandler')(app));
