@@ -17,8 +17,6 @@
     "express": "~3.5.1",
     "stylus": "~0.43.1",
     "mongoose": "~3.8.8",
-    "express-locale": "~0.1.0",
-	  "passport-local": "~0.1.6",
-	  "passport": "~0.1.17"
+    "express-locale": "~0.1.0"
   }
 }

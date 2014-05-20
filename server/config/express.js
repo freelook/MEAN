@@ -1,5 +1,5 @@
 var express = require('express'),
-	stylus = require('stylus')
+	stylus = require('stylus'),
 	locale = require('express-locale');
 
 module.exports = function(app, config) {
@@ -10,6 +10,7 @@ module.exports = function(app, config) {
 	app.configure(function() {
 		app.set('views', config.rootPath + '/server/views');
 		app.set('view engine', 'jade');
+		app.use(express.favicon('./app/favicon.ico'));
 		app.use(express.logger(config.logger));
 		app.use(locale());
 		app.use(express.cookieParser());
@@ -21,6 +22,9 @@ module.exports = function(app, config) {
 				compile: compile
 			}
 		));
+		app.use(require('../middleware/HttpError'));
+		app.use(app.router);
 		app.use(express.static(config.rootPath + '/app'));
+		app.use( require('../middleware/ErrorHandler')(app));
 	});
 };

@@ -1,34 +1,62 @@
-var passport = require('passport'),
-	mongoose = require('mongoose'),
-	LocalStrategy = require('passport-local').Strategy,
-	User = mongoose.model('User');
+var http = require('http');
 
-module.exports = function() {
-	passport.use(new LocalStrategy(
-		function(username, password, done) {
-			User.findOne({username:username}).exec(function(err, user) {
-				if(user && user.authenticate(password)) {
-					return done(null, user);
+exports.authenticate = function(req, res, next) {
+	http.get('http://api.vk.com/method/likes.getList?type=sitepage&owner_id=3520312&extended=1&page_url=dev.freelook.info/app/test.html',
+		function(VKRes) {
+			var data;
+			VKRes.setEncoding('utf8');
+			res.setHeader('Content-Type', 'text/plain;charset=utf-8');
+			VKRes.on('data', function(d) {
+				if (data) {
+					data += d;
 				} else {
-					return done(null, false);
+					data = d;
 				}
 			});
-		}
-	));
-
-	passport.serializeUser(function(user, done) {
-		if(user) {
-			done(null, user._id);
-		}
-	});
-
-	passport.deserializeUser(function(id, done) {
-		User.findOne({_id:id}).exec(function(err, user) {
-			if(user) {
-				return done(null, user);
-			} else {
-				return done(null, false);
-			}
+			VKRes.on('end', function() {
+				try {
+					var VKuser,
+						VKresponse = JSON.parse(data);
+					if (VKresponse && VKresponse.response) {
+						var response = VKresponse.response;
+						if (response.items.length === 1) {
+							VKuser = VKresponse.response.items[0];
+							res.cookie('usr', VKuser, {httpOnly: true})
+								.send({
+									success:true
+								});
+						} else {
+							res.end();
+						}
+					}
+				} catch (err) {
+					res.end();
+					console.log(err);
+				}
+			});
+		}).on('error', function(err) {
+			res.end();
+			console.log("Got error: " + err.message);
 		});
-	});
-}
+
+};
+
+exports.requiresApiLogin = function(req, res, next) {
+	if (!req.isAuthenticated()) {
+		res.status(403);
+		res.end();
+	} else {
+		next();
+	}
+};
+
+exports.requiresRole = function(role) {
+	return function(req, res, next) {
+		if (!req.isAuthenticated() || req.user.roles.indexOf(role) === -1) {
+			res.status(403);
+			res.end();
+		} else {
+			next();
+		}
+	}
+};

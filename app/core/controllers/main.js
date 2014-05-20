@@ -1,25 +1,33 @@
 define(['app', 'core/js/vk'], function(app, vk) {
 	'use strict';
 
-	app.register.controller('main', function($scope) {
+	app.register.controller('main', function($scope, $http, $window) {
 		$scope.myVar = "Hello Angular";
-	});
 
-	VK.init({apiId: 3520312, onlyWidgets: true});
-	VK.Widgets.Like("vk", {type: "button", height: 24});
+		$scope.signin = function() {
+			$http.post('/login').then(function(response) {
+				if (response.data.success) {
+					$window.location = '/demo/app.html';
+				}
+			});
+		};
 
-	try {
-		if (VK && VK.Observer && VK.Observer.subscribe) {
-			VK.Observer.subscribe('widgets.like.liked', function() {
-				// todo liked
-				console.log('liked');
-			});
-			VK.Observer.subscribe('widgets.like.unliked', function() {
-				// todo unliked
-				console.log('unliked');
-			});
+		VK.init({apiId: 3520312, onlyWidgets: true});
+		VK.Widgets.Like("vk", {type: "button", height: 24});
+
+		try {
+			if (VK && VK.Observer && VK.Observer.subscribe) {
+				VK.Observer.subscribe('widgets.like.liked', function() {
+					console.log('in');
+					$scope.signin();
+					//$scope.$emit('goBack');
+				});
+				VK.Observer.subscribe('widgets.like.unliked', function() {
+					console.log('un');
+				});
+			}
+		} catch (e) {
+			console.error(e.message);
 		}
-	} catch (e) {
-		console.error(e.message);
-	}
+	});
 });
