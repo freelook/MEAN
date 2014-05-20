@@ -7,7 +7,6 @@ module.exports = function(app) {
 		res.render('../../app/views/' + req.params);
 	});
 	app.get('/demo/*', controllers.auth, function(req, res, next) {
-		//res.sendfile('../../app/demo/' + req.params);
 		next();
 	});
 
