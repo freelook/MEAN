@@ -12,6 +12,6 @@ require('./server/config/mongoose')(config);
 
 require('./server/config/routes')(app);
 
-app.listen(config.port);
+require('./server/config/socket')(app.listen(config.port));
 
 console.log('Listening on port ' + config.port + ' ...');

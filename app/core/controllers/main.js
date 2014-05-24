@@ -1,7 +1,7 @@
 define(['app', 'core/js/vk'], function(app, vk) {
 	'use strict';
 
-	app.register.controller('main', function($scope, $http, $window) {
+	app.register.controller('main', function($scope, $http, $window, socket) {
 		$scope.myVar = "Hello Angular";
 
 		$scope.signin = function() {
@@ -20,6 +20,10 @@ define(['app', 'core/js/vk'], function(app, vk) {
 				VK.Observer.subscribe('widgets.like.liked', function() {
 					console.log('in');
 					$scope.signin();
+					// TODO: test ws
+					socket.emit('msg', {
+						message: 'in'
+					});
 					//$scope.$emit('goBack');
 				});
 				VK.Observer.subscribe('widgets.like.unliked', function() {

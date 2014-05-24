@@ -4,16 +4,17 @@ require.config({
 
 	paths: {
 		'angular': 'vendor/angular/angular',
-		'angular-route': 'vendor/angular-route/angular-route',
-		'angular-resource': 'vendor/angular-resource/angular-resource',
+		'angularRoute': 'vendor/angular-route/angular-route',
+		'angularResource': 'vendor/angular-resource/angular-resource',
 		'angularAMD': 'vendor/angularAMD/angularAMD',
-		'ngload': 'vendor/angularAMD/ngload'
+		'ngload': 'vendor/angularAMD/ngload',
+		'socket.io': 'socket.io/socket.io'
 	},
 
 	shim: {
 		'angularAMD': ['angular'],
-		'angular-route': ['angular'],
-		'angular-resource': ['angular']
+		'angularRoute': ['angular'],
+		'angularResource': ['angular']
 	},
 
 	deps: ['app']
