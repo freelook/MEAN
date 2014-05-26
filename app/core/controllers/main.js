@@ -2,12 +2,12 @@ define(['app', 'core/js/vk'], function(app, vk) {
 	'use strict';
 
 	app.register.controller('main', function($scope, $http, $window, socket) {
-		$scope.myVar = "Hello Angular";
+		$scope.lcz = lcz;
 
 		$scope.signin = function() {
 			$http.post('/login').then(function(response) {
 				if (response.data.success) {
-					$window.location = '/demo/app.html';
+					$window.location = '/';
 				}
 			});
 		};

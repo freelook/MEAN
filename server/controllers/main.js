@@ -16,12 +16,16 @@ exports.routConfig = function(req, res, next) {
 			source = 'fb';
 			break;
 		case '/':
-			source = 'main';
+			if(req.cookies.usr) {
+				source = 'app';
+			} else {
+				source = 'main';
+			}
 			break;
 	}
 	if (source) {
 		res.render(source, {
-			l: require('../locale/' + ln),
+			lcz: require('../locale/' + ln),
 			bootstrappedUser: req.user,
 			source: source
 		});

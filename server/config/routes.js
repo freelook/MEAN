@@ -6,7 +6,8 @@ module.exports = function(app) {
 	app.get('/partials/*', function(req, res) {
 		res.render('../../app/views/' + req.params);
 	});
-	app.get('/demo/*', controllers.auth, function(req, res, next) {
+
+	app.get('/demo/*', function(req, res, next) {
 		next();
 	});
 
