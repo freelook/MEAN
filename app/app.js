@@ -1,23 +1,29 @@
-define(['angularAMD', 'angularRoute', 'angularResource', 'socket.io'],
+define(['angularAMD', 'angularRoute', 'angularResource', 'core/controllers/controllers', 'socket.io'],
 	function(angularAMD, angularRoute, angularResource, io) {
 		'use strict';
-
-		var app = angular.module('app', ['ngResource', 'ngRoute']);
+// To Правильные зависимости(app.)
+		var app = angular.module('app', ['ngResource', 'ngRoute', 'app.controllers']);
 
 		app.config(function($routeProvider, $locationProvider) {
 			$locationProvider.html5Mode(true);
 			$routeProvider
+				.when('/',
+					angularAMD.route({
+						templateUrl: '/partials/main/app',
+						controller: 'appCtrl',
+						controllerUrl: 'core/controllers/appCtrl'
+					}))
 				.when('/vk',
 					angularAMD.route({
 						templateUrl: '/partials/main/main',
-						controller: 'main',
-						controllerUrl: 'core/controllers/main'
+						controller: 'mainCtrl',
+						controllerUrl: 'core/controllers/mainCtrl'
 					}))
 				.when('/fb',
 					angularAMD.route({
 						templateUrl: '/partials/main/main',
-						controller: 'main',
-						controllerUrl: 'core/controllers/main'
+						controller: 'mainCtrl',
+						controllerUrl: 'core/controllers/mainCtrl'
 					}))
 				.otherwise({redirectTo: '/'});
 		});
@@ -45,6 +51,8 @@ define(['angularAMD', 'angularRoute', 'angularResource', 'socket.io'],
 				}
 			};
 		});
+
+
 
 
 		angularAMD.bootstrap(app);

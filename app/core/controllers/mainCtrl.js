@@ -1,7 +1,7 @@
 define(['app', 'core/js/vk'], function(app, vk) {
 	'use strict';
 
-	app.register.controller('main', function($scope, $http, $window, socket) {
+	app.register.controller('mainCtrl', function($scope, $http, $window, socket) {
 		$scope.lcz = lcz;
 
 		$scope.signin = function() {

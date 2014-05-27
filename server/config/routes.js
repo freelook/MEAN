@@ -15,7 +15,7 @@ module.exports = function(app) {
 
 	app.get('/logout', function(req, res) {
 		res.clearCookie('usr');
-		res.end();
+		res.redirect('/');
 	});
 
 	app.get('/api/*', function(req, res) {
