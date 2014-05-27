@@ -1,5 +1,5 @@
-define(['angularAMD', 'angularRoute', 'angularResource', 'core/controllers/controllers', 'socket.io'],
-	function(angularAMD, angularRoute, angularResource, io) {
+define(['angularAMD', 'core/controllers/controllers', 'socket.io'],
+	function(angularAMD, controllers, io) {
 		'use strict';
 // To Правильные зависимости(app.)
 		var app = angular.module('app', ['ngResource', 'ngRoute', 'app.controllers']);
