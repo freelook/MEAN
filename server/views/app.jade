@@ -1,6 +1,6 @@
 extends ../includes/layout
 block main-content
-	section.content
+	section.content(data-ng-controller="appCtrl")
 		div(data-ng-hide="isSpecificPage()")
 			section.top-header(data-ng-include="partials/main/header.html" id="header")
 			aside(data-ng-include="partials/main/nav.html" id="nav-container")
