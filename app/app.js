@@ -1,5 +1,5 @@
-define(['angularAMD', 'core/controllers/controllers', 'socket.io'],
-	function(angularAMD, controllers, io) {
+define(['angularAMD', 'angularRoute', 'angularResource', 'core/controllers/controllers', 'socket.io'],
+	function(angularAMD, angularRoute, angularResource, controllers, io) {
 		'use strict';
 // To Правильные зависимости(app.)
 		var app = angular.module('app', ['ngResource', 'ngRoute', 'app.controllers']);
@@ -9,9 +9,9 @@ define(['angularAMD', 'core/controllers/controllers', 'socket.io'],
 			$routeProvider
 				.when('/',
 					angularAMD.route({
-						templateUrl: '/partials/main/app',
-						controller: 'appCtrl',
-						controllerUrl: 'core/controllers/appCtrl'
+						templateUrl: '/partials/main/view',
+						controller: 'viewCtrl',
+						controllerUrl: 'core/controllers/viewCtrl'
 					}))
 				.when('/vk',
 					angularAMD.route({

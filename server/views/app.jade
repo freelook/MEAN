@@ -1,9 +1,8 @@
-extends ../includes/layout
+extends includes/layout
 block main-content
-	section.content(data-ng-controller="appCtrl")
-		div(data-ng-hide="isSpecificPage()")
-			section.top-header(data-ng-include="partials/main/header.html" id="header")
-			aside(data-ng-include="partials/main/nav.html" id="nav-container")
+	header.top-header(data-ng-include="'partials/main/header'" id="header")
+	aside(data-ng-include="'partials/main/nav'" id="nav-container")
+	section.content
 		div.view-container
-			section.animate-fade-up(data-ng-view id="content")
+			section(data-ng-view id="content")
 
