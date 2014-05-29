@@ -9694,7 +9694,7 @@ button.toast-close-button {
 }
 
 #nav-container {
-	z-index: 11;
+	z-index: 10;
 	position: absolute;
 	top: 80px;
 	bottom: 0;
@@ -9840,7 +9840,7 @@ button.toast-close-button {
 }
 
 .top-header {
-	z-index: 10;
+	z-index: 11;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -10119,4 +10119,11 @@ button.toast-close-button {
 	filter: alpha(opacity=0.0);
 	opacity: 0;
 	z-index: 100;
+}
+
+footer{
+	position:absolute;
+	bottom:0;
+	z-index: 9;
+	width: 100%;
 }
