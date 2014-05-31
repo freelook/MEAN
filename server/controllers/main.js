@@ -26,7 +26,7 @@ exports.routConfig = function(req, res, next) {
 	if (source) {
 		res.render(source, {
 			lcz: require('../locale/' + ln),
-			bootstrappedUser: req.user,
+			usr: req.cookies.usr,
 			source: source
 		});
 	} else {

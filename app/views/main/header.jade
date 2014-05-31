@@ -1,2 +1,20 @@
-
-
+div.top-nav(ng-controller="headerCtrl")
+	ul.nav-right.pull-right.list-unstyled
+		li.dropdown.text-normal.nav-profile(ng-class="openClass")
+			a.dropdown-toggle(ng-click="topNavOpen()")
+				img.img-circle.img30_30(ng-src="{{usr.img}}")
+				span.hidden-xs
+					span(ng-bind="usr.name")
+			ul.dropdown-menu.pull-right
+				li
+					a(href="/pages/profile")
+						i.fa.fa-user
+						spa My Profile
+				li
+					a(href="/tasks")
+						i.fa.fa-check
+						span My Tasks
+				li
+					a(href="/pages/logout")
+						i.fa.fa-sign-out
+						span Log Out
