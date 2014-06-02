@@ -1,7 +1,7 @@
 var http = require('http');
 
 exports.authenticate = function(req, res, next) {
-	http.get('http://api.vk.com/method/likes.getList?type=sitepage&owner_id=3520312&extended=1&page_url=dev.freelook.info/vk' +
+	http.get('http://api.vk.com/method/likes.getList?type=sitepage&owner_id=3520312&extended=1&page_url=dev.freelook.info/vk?time=' +
 			req.query.time,
 		function(VKRes) {
 			var data;
