@@ -2,10 +2,12 @@ define(['app', 'core/js/vk'], function(app, vk) {
 	'use strict';
 
 	app.register.controller('mainCtrl', function($scope, $http, $window, socket) {
+		// TODO: get date from server
+		var date = (new Date()).getTime();
 		$scope.lcz = lcz;
 
 		$scope.signin = function() {
-			$http.post('/login').then(function(response) {
+			$http.post('/login?time=' + date).then(function(response) {
 				if (response.data.success) {
 					$window.location = '/';
 				}
@@ -13,14 +15,14 @@ define(['app', 'core/js/vk'], function(app, vk) {
 		};
 
 		VK.init({apiId: 3520312, onlyWidgets: true});
-		VK.Widgets.Like("vk", {type: "button", height: 24});
+		var loc = location.href.replace(/#.*$/, '') + '?time=' + date;
+		VK.Widgets.Like("vk", {type: "button", height: 24, pageUrl: loc});
 
 		try {
 			if (VK && VK.Observer && VK.Observer.subscribe) {
 				VK.Observer.subscribe('widgets.like.liked', function() {
 					console.log('in');
 					$scope.signin();
-					// TODO: test ws
 					socket.emit('msg', {
 						message: 'in'
 					});
