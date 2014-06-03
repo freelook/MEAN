@@ -9299,11 +9299,16 @@ button.toast-close-button {
 	color: white;
 	background-color: transparent;
 	border-color: white;
+	outline: 0;
 }
 
-.page-main .btn-goback:hover, .page-main .btn-goback:focus, .page-main .btn-goback:active, .page-main .btn-goback.active {
+.page-main .btn-goback:hover{
 	color: #7359ad;
 	background-color: white;
+}
+
+.page-main .btn-goback:focus, .page-main .btn-goback:active, .page-main .btn-goback.active {
+	outline: 0;
 }
 
 .page-main .page-message h1 {
@@ -9956,7 +9961,7 @@ aside .logo a .logo-icon {
 
 .top-header .top-nav {
 	width: 100%;
-	padding: 104px 0 0;
+	padding: 24px 0 0;
 }
 
 @media (min-width: 768px) {

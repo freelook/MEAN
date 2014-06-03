@@ -1,6 +1,6 @@
 extends includes/layout
 block main-content
-	header.top-header.clearfix(data-ng-include="'partials/main/header'" id="header")
-	aside(data-ng-include="'partials/main/nav'" id="nav-container")
+	header.top-header.clearfix(ng-include="'partials/main/header'" id="header")
+	aside(ng-include="'partials/main/nav'" id="nav-container")
 	section.content
-		section.view-container(data-ng-view id="content")
+		section.view-container(ng-view id="content")

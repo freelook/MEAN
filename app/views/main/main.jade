@@ -1,7 +1,6 @@
 .text-center
-	div(class="btn btn-lg btn-goback")
+	button.btn.btn-lg.btn-goback(type="button" ng-click="disableClick()" ng-disabled="inButtonDisable")
 		span.glyphicon.glyphicon-home
 		span.space
 		span(ng-bind="lcz.enter")
-		div(id="vk")
-
+	div(id="vk")
