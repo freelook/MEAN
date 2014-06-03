@@ -10119,7 +10119,8 @@ aside .logo a .logo-icon {
 }
 
 #vk iframe {
-	top: -22px;
+	top: -30px;
+	left: 101px;
 	position: absolute;
 	filter: alpha(opacity=0.0);
 	opacity: 0;
