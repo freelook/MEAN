@@ -13,7 +13,7 @@ module.exports = function(app) {
 
 	app.post('/login', passport.authenticate);
 
-	app.get('/logout', function(req, res) {
+	app.all('/logout', function(req, res) {
 		res.clearCookie('usr');
 		res.redirect('/');
 	});

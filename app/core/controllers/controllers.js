@@ -3,7 +3,7 @@ define(['angularAMD'], function(angularAMD) {
 		console.info('nav');
 	}]).controller('appCtrl', function($scope, socket) {
 		console.info('appCtrl');
-	}).controller('headerCtrl', function($scope, $http) {
+	}).controller('headerCtrl', function($scope, $http, $window) {
 		console.info('headerCtrl');
 		var user = {},
 			isOpen = false;
@@ -21,7 +21,7 @@ define(['angularAMD'], function(angularAMD) {
 			}
 		} else {
 			user = {
-				name: 'Неопределен'
+				name: 'Инкогнито'
 			};
 		}
 
@@ -31,5 +31,11 @@ define(['angularAMD'], function(angularAMD) {
 			$scope.openClass = isOpen ? '' : 'open';
 			isOpen = !isOpen;
 		};
+		$scope.logout = function() {
+			$http.post('/logout', {logout:true}).then(function() {
+				usr = null;
+				$window.location = '/';
+			});
+		}
 	});
 });

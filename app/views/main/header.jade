@@ -7,14 +7,10 @@ div.top-nav(ng-controller="headerCtrl")
 					span(ng-bind="usr.name")
 			ul.dropdown-menu.pull-right
 				li
-					a(href="/pages/profile")
+					a(href="/profile")
 						i.fa.fa-user
 						spa My Profile
 				li
-					a(href="/tasks")
-						i.fa.fa-check
-						span My Tasks
-				li
-					a(href="/pages/logout")
+					a(ng-click="logout()")
 						i.fa.fa-sign-out
 						span Log Out

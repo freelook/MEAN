@@ -4,7 +4,8 @@ define(['app', 'core/js/vk'], function(app, vk) {
 	app.register.controller('mainCtrl', function($scope, $http, $window, socket) {
 		console.info('mainCtrl');
 		// TODO: get date from server
-		var date = (new Date()).getTime();
+		//var date = (new Date()).getTime();
+		var date = '1401868310976';
 		$scope.inButtonDisable = false;
 		$scope.lcz = lcz;
 
