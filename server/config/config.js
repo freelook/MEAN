@@ -6,7 +6,8 @@ var config = {
 		db: 'mongodb://localhost/mean',
 		rootPath: rootPath,
 		port: process.env.PORT || 3333,
-		logger: 'dev'
+		logger: 'dev',
+		date: '1401868310976'
 	},
 	production: {
 		rootPath: rootPath,
