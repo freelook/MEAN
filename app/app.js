@@ -1,30 +1,26 @@
 define(['angularAMD', 'angularRoute', 'angularResource', 'core/controllers/controllers', 'socket.io'],
 	function(angularAMD, angularRoute, angularResource, controllers, io) {
 		'use strict';
-// To Правильные зависимости(app.)
-		var app = angular.module('app', ['ngResource', 'ngRoute', 'app.controllers']);
 
+		var app = angular.module('app', ['ngResource', 'ngRoute', 'app.controllers']);
 		app.config(function($routeProvider, $locationProvider) {
+			var configAMD = angularAMD.constructor;
+			configAMD.viewPath = 'views/main/';
+			configAMD.ctrlPath = 'core/controllers/';
 			$locationProvider.html5Mode(true);
 			$routeProvider
-				.when('/',
-					angularAMD.route({
-						templateUrl: '/partials/main/view',
-						controller: 'viewCtrl',
-						controllerUrl: 'core/controllers/viewCtrl'
-					}))
-				.when('/vk',
-					angularAMD.route({
-						templateUrl: '/partials/main/main',
-						controller: 'mainCtrl',
-						controllerUrl: 'core/controllers/mainCtrl'
-					}))
-				.when('/fb',
-					angularAMD.route({
-						templateUrl: '/partials/main/main',
-						controller: 'mainCtrl',
-						controllerUrl: 'core/controllers/mainCtrl'
-					}))
+				.when('/:view',
+				angularAMD.route({
+					templateUrl: function(config) {
+						debugger;
+						var view = 'view';
+						if (config && config.view) {
+							view = config.view;
+						}
+						return configAMD.viewPath + view;
+					},
+					controllerUrl: true
+				}))
 				.otherwise({redirectTo: '/'});
 		});
 
@@ -51,8 +47,6 @@ define(['angularAMD', 'angularRoute', 'angularResource', 'core/controllers/contr
 				}
 			};
 		});
-
-
 
 
 		angularAMD.bootstrap(app);

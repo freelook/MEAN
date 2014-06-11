@@ -1,2 +1,6 @@
-div(ng-controller="viewCtrl")
-	//span app
+.text-center(ng-controller="viewCtrl")
+	button.btn.btn-lg.btn-goback(type="button" ng-click="disableClick()" ng-disabled="inButtonDisable")
+		span.glyphicon.glyphicon-home
+		span.space
+		span(ng-bind="lcz.enter")
+	div(id="vk")

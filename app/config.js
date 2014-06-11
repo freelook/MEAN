@@ -7,7 +7,6 @@ require.config({
 		'angularRoute': 'vendor/angular-route/angular-route',
 		'angularResource': 'vendor/angular-resource/angular-resource',
 		'angularAMD': 'vendor/angularAMD/angularAMD',
-		'ngload': 'vendor/angularAMD/ngload',
 		'socket.io': 'socket.io/socket.io'
 	},
 

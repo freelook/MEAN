@@ -9,14 +9,18 @@ exports.routConfig = function(req, res, next) {
 	}
 
 	switch (req.params.toString()) {
-		case '/vk':
-			source = 'vk';
-			break;
-		case '/fb':
-			source = 'fb';
+		case '/view':
+			switch (req.query.name) {
+				case 'vk':
+					source = 'vk';
+					break;
+				case 'fb':
+					source = 'fb';
+					break;
+			}
 			break;
 		case '/':
-			if(req.cookies.usr) {
+			if (req.cookies.usr) {
 				source = 'app';
 			} else {
 				source = 'main';

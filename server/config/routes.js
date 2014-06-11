@@ -3,7 +3,7 @@ var controllers = require('../controllers/main'),
 	http = require('http');
 
 module.exports = function(app) {
-	app.get('/partials/*', function(req, res) {
+	app.get('/views/*', function(req, res) {
 		res.render('../../app/views/' + req.params);
 	});
 
