@@ -113,7 +113,6 @@ define(function() {
 			resolve['__load'] = ['$q', '$rootScope', '$route', function($q, $rootScope, $route) {
 				var params = $route.current.params;
 				var defer = $q.defer();
-				debugger;
 				if (typeof load_controller === 'boolean' && params && params.view) {
 					load_controller = angularAMD.ctrlPath + params.view + 'Ctrl';
 				}

@@ -12,7 +12,6 @@ define(['angularAMD', 'angularRoute', 'angularResource', 'core/controllers/contr
 				.when('/:view',
 				angularAMD.route({
 					templateUrl: function(config) {
-						debugger;
 						var view = 'view';
 						if (config && config.view) {
 							view = config.view;
