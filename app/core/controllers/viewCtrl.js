@@ -25,7 +25,7 @@ define(['app', 'core/js/vk'], function(app, vk) {
 		socket.on('setDate', function(date) {
 			$scope.date = date;
 			VK.init({apiId: 3520312, onlyWidgets: true});
-			var loc = location.href.replace(/#.*$/, '') + '&time=' + date;
+			var loc = location.host + '/' + date;
 			VK.Widgets.Like("vk", {type: "button", height: 24, pageUrl: loc});
 			$scope.inButtonShow = true;
 		});
