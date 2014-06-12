@@ -9324,7 +9324,9 @@ button.toast-close-button {
 }
 
 .page-main .login-block {
-
+	width: 140px;
+	margin: auto;
+	position: relative;
 }
 
 .page-err {
@@ -10124,7 +10126,7 @@ aside .logo a .logo-icon {
 
 #vk iframe {
 	top: -30px;
-	left: 101px;
+	left: 10px;
 	position: absolute;
 	filter: alpha(opacity=0.0);
 	opacity: 0;

@@ -2,5 +2,8 @@
 	"enter": "Sign In",
 	"next": "Next",
 	"vk": "VK",
-	"fb": "Facebook"
+	"fb": "Facebook",
+	"http": {
+		"401": "You are not authorized"
+	}
 }

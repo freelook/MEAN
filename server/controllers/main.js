@@ -1,4 +1,5 @@
-var HttpError = require('../utilities/error').HttpError;
+var HttpError = require('../utilities/error').HttpError,
+	locale;
 
 exports.routConfig = function(req, res, next) {
 	var ln = 'en',
@@ -7,6 +8,8 @@ exports.routConfig = function(req, res, next) {
 		ln = req.locale.code.split('_')[0].toLowerCase();
 		ln = (ln === 'ru') ? ln : 'en';
 	}
+
+	locale = require('../locale/' + ln);
 
 	switch (req.params.toString()) {
 		case '/view':
@@ -29,7 +32,7 @@ exports.routConfig = function(req, res, next) {
 	}
 	if (source) {
 		res.render(source, {
-			lcz: require('../locale/' + ln),
+			lcz: locale,
 			usr: req.cookies.usr,
 			source: source
 		});
@@ -40,7 +43,10 @@ exports.routConfig = function(req, res, next) {
 
 exports.auth = function(req, res, next) {
 	if (!req.cookies.usr) {
-		return next(new HttpError(401, "Вы не авторизованы"));
+		if( !locale ){
+			locale = require('../locale/en');
+		}
+		return next(new HttpError(401, locale.http['401']));
 	}
 
 	next();
