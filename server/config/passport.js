@@ -27,16 +27,26 @@ exports.authenticate = function(req, res, next) {
 									success:true
 								});
 						} else {
-							res.end();
+							res.send({
+								success:false
+							});
 						}
+					} else {
+						res.send({
+							success:false
+						});
 					}
 				} catch (err) {
-					res.end();
+					res.send({
+						success:false
+					});
 					console.log(err);
 				}
 			});
 		}).on('error', function(err) {
-			res.end();
+			res.send({
+				success:false
+			});
 			console.log("Got error: " + err.message);
 		});
 

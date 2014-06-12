@@ -9,11 +9,14 @@ define(['app', 'core/js/vk'], function(app, vk) {
 		console.info('mainCtrl:' + $routeParams.name);
 		$scope.lcz = lcz;
 		$scope.inButtonDisable = false;
+		$scope.inButtonShow = false;
 		$scope.signin = function() {
 			if($scope.date) {
 				$http.post('/login?time=' + $scope.date).then(function(response) {
 					if (response.data.success) {
 						$window.location = '/';
+					} else {
+						// TODO: Show msg err
 					}
 				});
 			}
@@ -22,8 +25,9 @@ define(['app', 'core/js/vk'], function(app, vk) {
 		socket.on('setDate', function(date) {
 			$scope.date = date;
 			VK.init({apiId: 3520312, onlyWidgets: true});
-			var loc = location.href.replace(/#.*$/, '') + '?time=' + date;
+			var loc = location.href.replace(/#.*$/, '') + '&time=' + date;
 			VK.Widgets.Like("vk", {type: "button", height: 24, pageUrl: loc});
+			$scope.inButtonShow = true;
 		});
 
 		try {
@@ -31,6 +35,7 @@ define(['app', 'core/js/vk'], function(app, vk) {
 				VK.Observer.subscribe('widgets.like.liked', function() {
 					console.log('in');
 					$scope.inButtonDisable = true;
+					// TODO: display vk
 					$scope.signin();
 					socket.emit('msg', {
 						message: 'in'
