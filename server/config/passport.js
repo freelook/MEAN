@@ -47,7 +47,7 @@ exports.authenticate = function(req, res, next) {
 			res.send({
 				success:false
 			});
-			console.log("Got error: " + err.message);
+			console.log( "Got error: " + err.message );
 		});
 
 };
