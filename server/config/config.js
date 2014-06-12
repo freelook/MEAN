@@ -7,7 +7,7 @@ var config = {
 		rootPath: rootPath,
 		port: process.env.PORT || 3333,
 		logger: 'dev',
-		date: '1401868310976'
+		date: '1402596978956'
 	},
 	production: {
 		rootPath: rootPath,
