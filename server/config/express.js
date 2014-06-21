@@ -25,6 +25,9 @@ module.exports = function(app, config) {
 		app.use(require('../middleware/HTTPError'));
 		app.use(app.router);
 		app.use(express.static(config.rootPath + '/app'));
+//		app.use(function(req, res) {
+//			res.send('404: Page not Found', 404);
+//		});
 		app.use( require('../middleware/ErrorHandler')(app));
 	});
 };
