@@ -5,8 +5,7 @@ define(['angularAMD', 'angularRoute', 'angularResource', 'core/controllers/contr
 		var app = angular.module('app', ['ngResource', 'ngRoute', 'app.controllers']);
 		app.config(function($routeProvider, $locationProvider) {
 			var configAMD = angularAMD.constructor;
-			configAMD.viewPath = 'views/main/';
-			configAMD.ctrlPath = 'core/controllers/';
+			configAMD.MVCPath = 'mvc/';
 			$locationProvider.html5Mode(true);
 			$routeProvider
 				.when('/:view',
@@ -16,9 +15,14 @@ define(['angularAMD', 'angularRoute', 'angularResource', 'core/controllers/contr
 						if (config && config.view) {
 							view = config.view;
 						}
-						return configAMD.viewPath + view;
+						return configAMD.MVCPath + view + '/' + view + '.html';
 					},
 					controllerUrl: true
+				}))
+				.when('/',
+				angularAMD.route({
+					templateUrl: configAMD.MVCPath + 'main/main.html',
+					controllerUrl: configAMD.MVCPath + 'main/mainCtrl'
 				}))
 				.otherwise({redirectTo: '/'});
 		});

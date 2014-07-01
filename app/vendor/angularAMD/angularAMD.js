@@ -114,7 +114,8 @@ define(function() {
 				var params = $route.current.params;
 				var defer = $q.defer();
 				if (typeof load_controller === 'boolean' && params && params.view) {
-					load_controller = angularAMD.ctrlPath + params.view + 'Ctrl';
+					var view = params.view;
+					load_controller = angularAMD.MVCPath + view + '/' + view + 'Ctrl';
 				}
 				require([load_controller], function() {
 					defer.resolve();

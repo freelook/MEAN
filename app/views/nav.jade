@@ -1,0 +1,14 @@
+div(ng-controller="navCtrl")
+	div.logo.bg-primary
+		a(href="/")
+			span Freelook
+			span(ng-click="changeNav()") <
+	ul(id="nav"
+		collapse-nav
+		slim-scroll
+		highlight-active)
+		li
+			a(href="#/dashboard")
+				i.fa.fa-dashboard
+					//span(data-i18n="Dashboard")
+					span Dashboard

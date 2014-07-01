@@ -1,6 +1,9 @@
 define(['angularAMD'], function(angularAMD) {
-	angular.module("app.controllers", []).controller("navCtrl", ["$scope", function($scope) {
-		console.info('nav');
+	angular.module("app.controllers", []).controller('navCtrl', ['$scope', function($scope) {
+		console.info('navCtrl');
+		$scope.changeNav = function() {
+			console.info('Изменяем левую панель');
+		};
 	}]).controller('appCtrl', function($scope, socket) {
 		console.info('appCtrl');
 	}).controller('headerCtrl', function($scope, $http, $window) {
@@ -13,8 +16,8 @@ define(['angularAMD'], function(angularAMD) {
 			};
 			if (usr.uid) {
 				var vkr = 'http://api.vk.com/method/users.get?user_ids=' + usr.uid + '&fields=photo_50&callback=JSON_CALLBACK';
-				$http.jsonp(vkr).success(function(data){
-					if(data){
+				$http.jsonp(vkr).success(function(data) {
+					if (data) {
 						$scope.usr.img = data.response[0].photo_50;
 					}
 				});
@@ -32,7 +35,7 @@ define(['angularAMD'], function(angularAMD) {
 			isOpen = !isOpen;
 		};
 		$scope.logout = function() {
-			$http.post('/logout', {logout:true}).then(function() {
+			$http.post('/logout', {logout: true}).then(function() {
 				usr = null;
 				$window.location = '/';
 			});
